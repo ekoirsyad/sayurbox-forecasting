@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".forecast.ForecastActivity">
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -18,31 +19,32 @@
         android:id="@+id/image_current_weather"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="4dp"
         android:layout_margin="@dimen/res_10_dp"
-        android:gravity="center"
         android:padding="10dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="42sp"
+        android:textSize="52sp"
         app:layout_constraintDimensionRatio="1:1"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:autoSizeMinTextSize="52sp"
+        android:autoSizeMaxTextSize="52sp"
+        tools:text="icon weather"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@id/tv_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.4"/>
+        app:layout_constraintWidth_percent="0.4"
+        tools:targetApi="o" />
 
     <TextView
         android:id="@+id/tv_location"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/res_10_dp"
-        android:autoSizeMaxTextSize="@dimen/res_32_sp"
-        android:autoSizeMinTextSize="@dimen/res_32_sp"
-        android:maxLines="1"
         app:layout_constraintBottom_toTopOf="@id/tv_wind_information"
-        app:layout_constraintEnd_toStartOf="@id/icon_loc"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image_current_weather"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="o"
+        app:layout_constraintTop_toTopOf="@id/image_current_weather"
         tools:text="location_information" />
 
     <TextView
@@ -50,9 +52,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/res_10_dp"
+        android:layout_marginStart="@dimen/res_10_dp"
         app:layout_constraintBottom_toTopOf="@id/tv_atmosphere_information"
-        app:layout_constraintEnd_toStartOf="@id/icon_wind"
-        app:layout_constraintStart_toStartOf="@id/tv_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_current_weather"
         app:layout_constraintTop_toBottomOf="@id/tv_location"
         tools:text="wind_information" />
 
@@ -61,49 +64,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/res_10_dp"
-        app:layout_constraintBottom_toTopOf="@id/rv_forecast"
-        app:layout_constraintEnd_toStartOf="@id/icon_atmosphere"
-        app:layout_constraintStart_toStartOf="@id/tv_location"
+        android:layout_marginStart="@dimen/res_10_dp"
+        app:layout_constraintBottom_toBottomOf="@id/image_current_weather"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_current_weather"
         app:layout_constraintTop_toBottomOf="@id/tv_wind_information"
         tools:text="atmosphere_information" />
 
-
-    <TextView
-        android:id="@+id/icon_loc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/icon_wind"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_location"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/icon_wind"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/icon_atmosphere"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_wind_information"
-        app:layout_constraintTop_toBottomOf="@id/icon_loc" />
-
-    <TextView
-        android:id="@+id/icon_atmosphere"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/rv_forecast"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_atmosphere_information"
-        app:layout_constraintTop_toBottomOf="@id/icon_wind" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_forecast"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:nestedScrollingEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_current_weather"
-        tools:targetApi="lollipop">
+        app:layout_constraintTop_toBottomOf="@id/image_current_weather">
 
     </android.support.v7.widget.RecyclerView>
 

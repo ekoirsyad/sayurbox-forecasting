@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_weather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="@dimen/res_8_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/image_forecast_weather"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/res_10_dp"
+                android:elevation="@dimen/res_2_dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/goldLeaf"
+                android:textSize="@dimen/res_32_sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/tv_forecast_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.3"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:id="@+id/tv_forecast_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/res_10_dp"
+                android:textColor="@color/almostWhite"
+                app:layout_constraintBottom_toTopOf="@id/tv_forecast_information"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_forecast_weather"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="forecast_date" />
+
+            <TextView
+                android:id="@+id/tv_forecast_information"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/res_10_dp"
+                android:layout_marginStart="@dimen/res_10_dp"
+                android:textColor="@color/almostWhite"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_forecast_weather"
+                app:layout_constraintTop_toBottomOf="@id/tv_forecast_date"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="forecast_information" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
